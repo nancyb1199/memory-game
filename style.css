@@ -1,0 +1,22 @@
+
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(200px, auto);
+  font-size: 28px;
+}
+
+#board div{
+  grid-column: auto;
+  grid-row: auto;
+  background-color: purple;
+  color: purple;
+  text-align: center;
+}
+
+.hidden
+
+
+.active
