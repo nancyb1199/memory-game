@@ -6,17 +6,25 @@
   grid-gap: 10px;
   grid-auto-rows: minmax(200px, auto);
   font-size: 28px;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
 }
 
 #board div{
   grid-column: auto;
   grid-row: auto;
   background-color: purple;
-  color: purple;
   text-align: center;
 }
 
 .hidden
-
+  h2 {
+    visibility: hidden;
+  }
 
 .active
+  h2 {
+    visibility: visible;
+  }
