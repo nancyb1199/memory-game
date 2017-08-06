@@ -1,4 +1,4 @@
- /* var sec = -1;
+/* var sec = -1;
 function pad(val) { return val > 9 ? val : "0" + val; }
 setInterval(function () {
     $("#seconds").html(pad(++sec % 60));
@@ -6,6 +6,17 @@ setInterval(function () {
     $("#hours").html(pad(parseInt(sec / 3600, 10)));
 }, 1000);
 */
+
+var timerVar = setInterval(countTimer, 1000);
+var totalSeconds = 0;
+function countTimer() {
+   ++totalSeconds;
+   var hour = Math.floor(totalSeconds /3600);
+   var minute = Math.floor((totalSeconds - hour*3600)/60);
+   var seconds = totalSeconds - (hour*3600 + minute*60);
+
+   document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
+}
 
 /* let mode = "easy";
 for (let i = 0; i<12; i++){
@@ -93,7 +104,8 @@ function myCallBack() {
 
     if (twoFlipped) {
     // && (firstFlipID == secondFlipID)) {
-      console.log("twoFtrue");
+    // I can NOT get a comparison to work here... either everything
+    // matches or nothing does... tried SO many different things
       if (JSON.stringify(firstFlipID) == JSON.stringify(secondFlipID)){
         console.log("match");
         activeCount++;
