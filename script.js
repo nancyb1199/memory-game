@@ -52,13 +52,15 @@ for (i=0; i<cardbacks.length; i++){
 
 }
 
-
+let twoFlipped = false;
 let activeCount = 0;
+let firstFlip;
+let firstFlipID = "";
+let secondFlip;
+let secondFlipID = "";
 let block1 = document.getElementById( "board" );
 block1.addEventListener("click", myCallBack);
-let firstFlip;
-let secondFlip;
-let twoFlipped = false;
+
 
 function myCallBack() {
 
@@ -67,26 +69,44 @@ function myCallBack() {
       firstFlip = event.target.id;
       console.log(firstFlip);
       let thisCard = document.getElementById(firstFlip);
-      console.log(thisCard);
-      let firstFlipID = thisCard.getElementsByTagName('h2')[0];
+      firstFlipID = thisCard.getElementsByTagName('h2')[0];
       console.log(firstFlipID);
+      console.log(twoFlipped);
     }
     else {
       secondFlip = event.target.id;
       let thisCard = document.getElementById(secondFlip);
-      let secondFlipID = thisCard.getElementsByTagName('h2')[0];
+      secondFlipID = thisCard.getElementsByTagName('h2')[0];
       console.log(secondFlipID);
-      let twoFlipped = true;
+      console.log(secondFlip);
+      twoFlipped = true;
+      console.log(twoFlipped);
     }
     event.target.className = "active";
-}
-  if (twoFlipped){
-    if (firstFlipID == secondFlipID){
-      activeCount++;
+    console.log(twoFlipped);
+    console.log(firstFlipID);
+    console.log(secondFlipID);
+    if (twoFlipped) {
+      console.log("two flipped");
     }
-    else {
-      card1 = document.getElementById(firstFlip);
-      card2 = document.getElementById(secondFlip);
-      
-    }
+
+
+    if (twoFlipped) {
+    // && (firstFlipID == secondFlipID)) {
+      console.log("twoFtrue");
+      if (JSON.stringify(firstFlipID) == JSON.stringify(secondFlipID)){
+        console.log("match");
+        activeCount++;
+      }
+
+      else {
+        console.log("no match");
+
+        card1 = document.getElementById(firstFlip);
+        card2 = document.getElementById(secondFlip);
+        card1.className = "hidden";
+        card2.className = "hidden";
+        twoFlipped = false;
+      }
   }
+} /* myCallBack */
