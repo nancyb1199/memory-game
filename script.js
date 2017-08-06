@@ -1,12 +1,6 @@
-/* var sec = -1;
-function pad(val) { return val > 9 ? val : "0" + val; }
-setInterval(function () {
-    $("#seconds").html(pad(++sec % 60));
-    $("#minutes").html(pad(parseInt(sec / 60, 10) % 60));
-    $("#hours").html(pad(parseInt(sec / 3600, 10)));
-}, 1000);
-*/
 
+/* Thank you stackoverflow dude Yusuf for the timer!
+// https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
 var timerVar = setInterval(countTimer, 1000);
 var totalSeconds = 0;
 function countTimer() {
@@ -16,7 +10,7 @@ function countTimer() {
    var seconds = totalSeconds - (hour*3600 + minute*60);
 
    document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
-}
+} */
 
 /* let mode = "easy";
 for (let i = 0; i<12; i++){
@@ -56,7 +50,7 @@ for (i=0; i<cardbacks.length; i++){
   // console.log(y);
   let x = `
   <div id = ${y} class="hidden">
-  <h2>${matches[i]}</h2>
+  <h2 id = ${matches[i]}>${matches[i]}</h2>
   </div>
   `
   board.innerHTML += x;
@@ -80,14 +74,14 @@ function myCallBack() {
       firstFlip = event.target.id;
       console.log(firstFlip);
       let thisCard = document.getElementById(firstFlip);
-      firstFlipID = thisCard.getElementsByTagName('h2')[0];
+      firstFlipID = thisCard.getElementsByTagName('h2')[0].id;
       console.log(firstFlipID);
       console.log(twoFlipped);
     }
     else {
       secondFlip = event.target.id;
       let thisCard = document.getElementById(secondFlip);
-      secondFlipID = thisCard.getElementsByTagName('h2')[0];
+      secondFlipID = thisCard.getElementsByTagName('h2')[0].id;
       console.log(secondFlipID);
       console.log(secondFlip);
       twoFlipped = true;
@@ -103,10 +97,9 @@ function myCallBack() {
 
 
     if (twoFlipped) {
-    // && (firstFlipID == secondFlipID)) {
-    // I can NOT get a comparison to work here... either everything
-    // matches or nothing does... tried SO many different things
-      if (JSON.stringify(firstFlipID) == JSON.stringify(secondFlipID)){
+
+    if (firstFlipID == secondFlipID) {
+
         console.log("match");
         activeCount++;
       }
@@ -118,7 +111,11 @@ function myCallBack() {
         card2 = document.getElementById(secondFlip);
         card1.className = "hidden";
         card2.className = "hidden";
-        twoFlipped = false;
       }
+      twoFlipped = false;
+      firstFlip = null;
+      firstFlipID = "";
+      secondFlip = null;
+      secondFlipID = "";
   }
 } /* myCallBack */
