@@ -12,14 +12,6 @@ function countTimer() {
    document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
 } */
 
-/* let mode = "easy";
-for (let i = 0; i<12; i++){
-  let card = `
-  <div id=card[i]></div>
-
-  `
-} */
-
 
 let matches = ["A","A","B","B","C","C","D","D","E","E","F","F"];
 let cardbacks = ["a","b","c","d","e","f","g","h","i","j","k","l"];
@@ -119,3 +111,7 @@ function myCallBack() {
       secondFlipID = "";
   }
 } /* myCallBack */
+
+function nothing(){
+  console.log("waiting");
+}
