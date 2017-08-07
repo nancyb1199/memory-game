@@ -1,5 +1,5 @@
 
-/* Thank you stackoverflow dude Yusuf for the timer!
+// Thank you stackoverflow dude Yusuf for the timer!
 // https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
 var timerVar = setInterval(countTimer, 1000);
 var totalSeconds = 0;
@@ -10,7 +10,7 @@ function countTimer() {
    var seconds = totalSeconds - (hour*3600 + minute*60);
 
    document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
-} */
+}
 
 
 let matches = ["A","A","B","B","C","C","D","D","E","E","F","F"];
@@ -98,7 +98,7 @@ function myCallBack() {
 
       else {
         console.log("no match");
-
+        // setTimeout(noMatch(firstFlip,secondFlip), 2000);
         card1 = document.getElementById(firstFlip);
         card2 = document.getElementById(secondFlip);
         card1.className = "hidden";
@@ -111,7 +111,3 @@ function myCallBack() {
       secondFlipID = "";
   }
 } /* myCallBack */
-
-function nothing(){
-  console.log("waiting");
-}
